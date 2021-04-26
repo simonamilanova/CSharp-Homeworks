@@ -38,38 +38,100 @@ namespace ConsoleAppExceptions
 
 
             Console.WriteLine("Please select a cinema, type 1 for Cineplexx or 2 for Milenium");
-            string userInputCinema = Console.ReadLine();
+            int userInputCinema = 0;
+            int userInputMoviesOrGenre = 0;
+            try
+            {
+                userInputCinema = int.Parse(Console.ReadLine());
+            }
+            catch (ArgumentNullException nullEx)
+            {
+                Console.WriteLine($"Argument null exception mesage: {nullEx.Message}");
+            }
+            catch (FormatException  formEx)
+            {
+                Console.WriteLine($"Format exception message: {formEx.Message}");
+            }
+            catch (OverflowException overFlEx)
+            {
+                Console.WriteLine($"Overflow exception message:  {overFlEx.Message}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Message: {ex.Message}");
+            }
 
-            if (userInputCinema == "1")
+  
+            if (userInputCinema == 1)
             {
                 Console.WriteLine($"You've selected the cinema {cinema1.Name}");
-                Console.WriteLine("See all movie titles or by genre? Type movies or genre");
-                string userInputMoviesOrGenre = Console.ReadLine();
+                Console.WriteLine("See all movie titles or by genre? Type 3 for movies or 4 for genre");
+
+                try
+                {
+                    userInputMoviesOrGenre = int.Parse(Console.ReadLine());
+                }
+                catch (ArgumentNullException argNullEx)
+                {
+                    Console.WriteLine($"Argument null exception mesage: {argNullEx.Message}");
+                }
+                catch (FormatException forEx)
+                {
+                    Console.WriteLine($"Format exception message: {forEx.Message}");
+                }
+                catch (OverflowException overEx)
+                {
+                    Console.WriteLine($"Overflow exception message:  {overEx.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Message: {ex.Message}");
+                }
 
 
-                if (userInputMoviesOrGenre.ToLower() == "movies")
+                if (userInputMoviesOrGenre == 3)
                 {
                     Console.WriteLine("Here are all the movies: ");
                     MovieSet1.ForEach(movie => Console.WriteLine(movie.Title));
                 }
-                else if (userInputMoviesOrGenre.ToLower() == "genre")
+                else if (userInputMoviesOrGenre == 4)
                 {
                     Console.WriteLine("Here are all the movies: ");
                     MovieSet1.ForEach(movie => Console.WriteLine($"Movie Title: {movie.Title} - Genre: {movie.Genre}"));
                 }
             }
-            else if (userInputCinema == "2")
+            else if (userInputCinema == 2)
             {
                 Console.WriteLine($"You've selected the cinema {cinema2.Name}");
-                Console.WriteLine("See all movies or by genre? Type movies or genre");
-                string userInputMoviesOrGenre = Console.ReadLine();
+                Console.WriteLine("See all movies or by genre? Type 3 for movies or 4 for genre");
 
-                if (userInputMoviesOrGenre.ToLower() == "movies")
+                try
+                {
+                    userInputMoviesOrGenre = int.Parse(Console.ReadLine());
+                }
+                catch (ArgumentNullException argNullEx)
+                {
+                    Console.WriteLine($"Argument null exception mesage: {argNullEx.Message}");
+                }
+                catch (FormatException forEx)
+                {
+                    Console.WriteLine($"Format exception message: {forEx.Message}");
+                }
+                catch (OverflowException overEx)
+                {
+                    Console.WriteLine($"Overflow exception message:  {overEx.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Message: {ex.Message}");
+                }
+
+                if (userInputMoviesOrGenre == 3)
                 {
                     Console.WriteLine("Here are all the movies: ");
                     MovieSet1.ForEach(movie => Console.WriteLine(movie.Title));
                 }
-                else if (userInputMoviesOrGenre.ToLower() == "genre")
+                else if (userInputMoviesOrGenre == 4)
                 {
                     Console.WriteLine("Here are all the movies: ");
                     MovieSet1.ForEach(movie => Console.WriteLine($"Movie Title: {movie.Title} - Genre: {movie.Genre}"));
